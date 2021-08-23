@@ -9,23 +9,21 @@
 
 NS_ASSUME_NONNULL_BEGIN
 @protocol CCTrackProtocolDelegate <NSObject>
-
--(void)trackingChangePoint:(CGPoint)point;
-
+-(void)trackingChangePoint:(CGPoint)point;//finger point change
 @end
 
 @protocol CCTrackProtocol <NSObject>
 @property (nonatomic,weak) id<CCTrackProtocolDelegate> delegate;
 
-@property (nonatomic,assign) CGRect bounds;
+@property (nonatomic,assign) CGRect bounds;//control bounds 控制器bounds
 
-@property (nonatomic,assign) CGFloat ringWidth;
+@property (nonatomic,assign) CGFloat ringWidth;//ring width 色盘宽度
 
-@property (nonatomic,strong) UIColor *color;
+@property (nonatomic,strong) UIColor *color;//control color
 
-@property (nonatomic,assign) CGPoint point;
+@property (nonatomic,assign) CGPoint point;//finger point
 
-@property (nonatomic,assign) CGFloat fingerTabWidth;
+@property (nonatomic,assign) CGFloat fingerTabWidth; //fingertab width
 
 -(BOOL)beginTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event;
 

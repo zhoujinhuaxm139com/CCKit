@@ -27,7 +27,7 @@
 -(id)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
         [self.layer addSublayer:self.ringLayer];
-        self.ringWidth = 50;
+        self.ringWidth = 50;//ring default
     }
     return self;
 }
