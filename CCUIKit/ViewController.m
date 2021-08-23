@@ -7,7 +7,7 @@
 
 #import "ViewController.h"
 #import "CCColorPicker.h"
-@interface ViewController ()
+@interface ViewController ()<UIGestureRecognizerDelegate>
 @property (nonatomic,strong) CCColorPicker *colorPicker;
 @property (nonatomic,strong) UITextField *text;
 @property (nonatomic,strong) UITextField *text1;
@@ -27,6 +27,7 @@
     [self.view addSubview:self.okBtn];
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction)];
+    tap.delegate = self;
     [self.view addGestureRecognizer:tap];
     // Do any additional setup after loading the view.
 }
@@ -35,6 +36,11 @@
 }
 -(void)okAction{
     self.colorPicker.color = [UIColor colorWithRed:[self.text.text floatValue]/255.0 green:[self.text1.text floatValue]/255.0 blue:[self.text2.text floatValue]/255.0 alpha:1];
+}
+-(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch{
+    if (touch.view == self.colorPicker) {
+        return NO;
+    }return YES;
 }
 -(CCColorPicker *)colorPicker{
     if (!_colorPicker) {
