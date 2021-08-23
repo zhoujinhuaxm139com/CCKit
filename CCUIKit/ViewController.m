@@ -19,7 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.colorPicker.frame = CGRectMake(40, 80, 300, 300);
+    self.colorPicker.frame = CGRectMake(40, 20, 300, 300);
     [self.view addSubview:self.colorPicker];
     [self.view addSubview:self.text];
     [self.view addSubview:self.text1];
@@ -47,7 +47,7 @@
     if (!_text) {
         _text = [[UITextField alloc] init];
         _text.layer.borderColor = UIColor.grayColor.CGColor;
-        _text.frame = CGRectMake(50, 400, 200, 50);
+        _text.frame = CGRectMake(50, 370, 200, 50);
         _text.layer.borderWidth = 0.5;
 
     }
@@ -57,7 +57,7 @@
     if (!_text1) {
         _text1 = [[UITextField alloc] init];
         _text1.layer.borderColor = UIColor.grayColor.CGColor;
-        _text1.frame = CGRectMake(50, 470, 200, 50);
+        _text1.frame = CGRectMake(50, 440, 200, 50);
         _text1.layer.borderWidth = 0.5;
 
     }
@@ -68,14 +68,14 @@
         _text2 = [[UITextField alloc] init];
         _text2.layer.borderColor = UIColor.grayColor.CGColor;
         _text2.layer.borderWidth = 0.5;
-        _text2.frame = CGRectMake(50, 540, 200, 50);
+        _text2.frame = CGRectMake(50, 510, 200, 50);
     }
     return _text2;
 }
 -(UIButton *)okBtn{
     if (!_okBtn) {
         _okBtn = [[UIButton alloc] init];
-        _okBtn.frame = CGRectMake(50, 600, 200, 50);
+        _okBtn.frame = CGRectMake(50, 570, 200, 50);
         [_okBtn setTitle:@"确定" forState:UIControlStateNormal];
         [_okBtn setTitleColor:UIColor.blackColor forState:UIControlStateNormal];
         _okBtn.backgroundColor = UIColor.yellowColor;

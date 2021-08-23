@@ -29,7 +29,8 @@
 }
 -(BOOL)beginTrackingWithTouch:(UITouch *)touch withEvent:(id)event{
     CGPoint lastPoint = [touch locationInView:touch.view];
-    if ([self.class point:lastPoint inCircleRect:touch.view.bounds] && ![self.class point:lastPoint inCircleRect:CGRectMake(__center.x - (__width - _ringWidth), __center.y - (__width - _ringWidth), (__width - _ringWidth)*2, (__width - _ringWidth)*2)]) {
+    if ([self.class point:lastPoint inCircleRect:touch.view.bounds]
+        && ![self.class point:lastPoint inCircleRect:CGRectMake(__center.x - (__width - _ringWidth), __center.y - (__width - _ringWidth), (__width - _ringWidth)*2, (__width - _ringWidth)*2)]) {
         
         CGFloat h = [self convertAngleFromPoint:lastPoint]/(M_PI * 2);
         CGFloat s = [self convertRadius:lastPoint]/__width;
