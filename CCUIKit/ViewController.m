@@ -7,7 +7,9 @@
 
 #import "ViewController.h"
 #import "CCColorPicker.h"
-@interface ViewController ()<UIGestureRecognizerDelegate>
+@interface ViewController ()<UIGestureRecognizerDelegate>{
+    CGFloat __width;
+}
 @property (nonatomic,strong) CCColorPicker *colorPicker;
 @property (nonatomic,strong) CCColorPicker *ringPicker;
 
@@ -23,8 +25,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.colorPicker.frame = CGRectMake(40, 20, 250, 250);
-    self.ringPicker.frame = CGRectMake(40, 20, 250, 250);
+    __width = UIScreen.mainScreen.bounds.size.width;
+    self.colorPicker.frame = CGRectMake(50, 40, __width-100, __width-100);
+    self.ringPicker.frame = CGRectMake(50, 40, __width-100, __width-100);
     [self.view addSubview:self.colorPicker];
     [self.view addSubview:self.ringPicker];
     [self.view addSubview:self.text];
@@ -32,9 +35,9 @@
     [self.view addSubview:self.text2];
     [self.view addSubview:self.okBtn];
     [self.view addSubview:self.changeBtn];
-//    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction)];
-//    tap.delegate = self;
-//    [self.view addGestureRecognizer:tap];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction)];
+    tap.delegate = self;
+    [self.view addGestureRecognizer:tap];
     // Do any additional setup after loading the view.
 }
 -(void)tapAction{
@@ -52,7 +55,8 @@
 -(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch{
     if (touch.view == self.colorPicker || touch.view == self.ringPicker) {
         return NO;
-    }return YES;
+    }
+    return YES;
 }
 -(CCColorPicker *)colorPicker{
     if (!_colorPicker) {
@@ -73,7 +77,7 @@
     if (!_text) {
         _text = [[UITextField alloc] init];
         _text.layer.borderColor = UIColor.grayColor.CGColor;
-        _text.frame = CGRectMake(50, 370, 60, 40);
+        _text.frame = CGRectMake((__width-40)/3*0+10, 370, __width/3-10, 40);
         _text.layer.borderWidth = 0.5;
 
     }
@@ -83,7 +87,7 @@
     if (!_text1) {
         _text1 = [[UITextField alloc] init];
         _text1.layer.borderColor = UIColor.grayColor.CGColor;
-        _text1.frame = CGRectMake(50, 370, 60, 40);
+        _text1.frame = CGRectMake((__width-40)/3*1+20, 370, __width/3-10, 40);
         _text1.layer.borderWidth = 0.5;
 
     }
@@ -94,14 +98,14 @@
         _text2 = [[UITextField alloc] init];
         _text2.layer.borderColor = UIColor.grayColor.CGColor;
         _text2.layer.borderWidth = 0.5;
-        _text2.frame = CGRectMake(50, 370, 60, 40);
+        _text2.frame = CGRectMake((__width-40)/3*2+30, 370, __width/3-10, 40);
     }
     return _text2;
 }
 -(UIButton *)okBtn{
     if (!_okBtn) {
         _okBtn = [[UIButton alloc] init];
-        _okBtn.frame = CGRectMake(50, 420, 200, 40);
+        _okBtn.frame = CGRectMake(50, 460, (__width - 100), 40);
         [_okBtn setTitle:@"确定" forState:UIControlStateNormal];
         [_okBtn setTitleColor:UIColor.blackColor forState:UIControlStateNormal];
         _okBtn.backgroundColor = UIColor.yellowColor;
@@ -112,7 +116,7 @@
 -(UIButton *)changeBtn{
     if (!_changeBtn) {
         _changeBtn = [[UIButton alloc] init];
-        _changeBtn.frame = CGRectMake(50, 470, 200, 40);
+        _changeBtn.frame = CGRectMake(50, 530, (__width - 100), 40);
         [_changeBtn setTitle:@"切换色盘" forState:UIControlStateNormal];
         [_changeBtn setTitleColor:UIColor.blackColor forState:UIControlStateNormal];
         _changeBtn.backgroundColor = UIColor.yellowColor;

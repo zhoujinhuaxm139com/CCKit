@@ -38,8 +38,8 @@
     CGContextClearRect(ctx, self.frame);
     for (int i = 0;i < count;i++) {
         CGMutablePathRef cgPath = CGPathCreateMutable();
-        CGPathAddArc(cgPath, NULL, __center.x, __center.y, __width, i*M_PI/180, (i+1)*M_PI/180, NO);
-        CGPathAddArc(cgPath, NULL, __center.x, __center.y, __width - _width, (i+1)*M_PI/180, i*M_PI/180, YES);
+        CGPathAddArc(cgPath, NULL, __center.x, __center.y, __width - 1, i*M_PI/180, (i+1)*M_PI/180, NO);
+        CGPathAddArc(cgPath, NULL, __center.x, __center.y, __width - _width - 1, (i+1)*M_PI/180, i*M_PI/180, YES);
         CGPathCloseSubpath(cgPath);
         UIColor *color = [UIColor colorWithHue:1/360.0*i saturation:1 brightness:1 alpha:1];
         CGContextSetFillColorWithColor(ctx, color.CGColor);
@@ -48,7 +48,7 @@
         CGContextDrawPath(ctx, kCGPathFillStroke);
     }
     if (self.radialGradient) {
-        UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:__center radius:__width startAngle:0 endAngle:2*M_PI clockwise:YES];
+        UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:__center radius:__width - 1 startAngle:0 endAngle:2*M_PI clockwise:YES];
         [self drawRadialGradient:ctx path:[path CGPath] startColor:[UIColor whiteColor].CGColor endColor:UIColor.clearColor.CGColor];
     }
 }
