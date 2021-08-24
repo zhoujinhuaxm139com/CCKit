@@ -16,8 +16,8 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "CCKit"
-  spec.version      = "0.0.1"
-  spec.summary      = "A short description of CCKit."
+  spec.version      = "1.0.0"
+  spec.summary      = "色盘取色控件"
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
@@ -25,9 +25,12 @@ Pod::Spec.new do |spec|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   spec.description  = <<-DESC
+                    Features:
+                    1.色盘取色控件
+                    2.暂时只有简单功能
                    DESC
 
-  spec.homepage     = "http://EXAMPLE/CCKit"
+  spec.homepage     = "https://github.com/zhoujinhuaxm139com/CCKit"
   # spec.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -55,7 +58,7 @@ Pod::Spec.new do |spec|
   spec.author             = { "周金华" => "zhoujinhua_xm@139.com" }
   # Or just: spec.author    = "周金华"
   # spec.authors            = { "周金华" => "zhoujinhua_xm@139.com" }
-  # spec.social_media_url   = "https://twitter.com/周金华"
+  # spec.social_media_url   = "http://my.sina.com.cn/"
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -79,7 +82,7 @@ Pod::Spec.new do |spec|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  spec.source       = { :git => "http://EXAMPLE/CCKit.git", :tag => "#{spec.version}" }
+  spec.source       = { :git => "https://github.com/zhoujinhuaxm139com/CCKit.git", :tag => "#{spec.version}" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
