@@ -1,7 +1,6 @@
 Pod::Spec.new do |spec|
-
   spec.name         = "CCKit"
-  spec.version      = "1.0.0"
+  spec.version      = "1.0.1"
   spec.summary      = "色盘取色控件"
   spec.description  = <<-DESC
                     Features:
@@ -11,9 +10,8 @@ Pod::Spec.new do |spec|
   spec.homepage     = "https://www.baidu.com/"
   spec.license      = "MIT"
   spec.author       = { "周金华" => "zhoujinhua_xm@139.com" }
-  spec.ios.deployment_target = '9.0'
-  spec.source       = { :git => "https://github.com/zhoujinhuaxm139com/CCKit.git", :tag => spec.version }
+  spec.platform     = :ios, "9.0"
+  spec.source       = { :git => "https://github.com/zhoujinhuaxm139com/CCKit.git", :tag => "#{spec.version}" }
   spec.source_files  = "Classes/**/*.{h,m}"
   spec.public_header_files = "Classes/**/*.h"
-  
 end
