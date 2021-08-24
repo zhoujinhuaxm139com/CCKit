@@ -82,13 +82,6 @@
 -(void)endTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event{
     [super endTrackingWithTouch:touch withEvent:event];
 }
--(UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event{
-    CGPoint redBtnPoint = [self convertPoint:point toView:self];
-        if ([self pointInside:redBtnPoint withEvent:event]) {
-            return self;
-        }
-        return [super hitTest:point withEvent:event];
-}
 -(void)trackingChangePoint:(CGPoint)point{
     self.fingerTab.center = point;
 }
