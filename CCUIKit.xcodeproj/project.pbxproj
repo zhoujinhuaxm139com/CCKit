@@ -96,6 +96,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2423F79526D484AA00525EFF /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				24337B4526D337D200A63473 /* ColorPicker */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		24337B4526D337D200A63473 /* ColorPicker */ = {
 			isa = PBXGroup;
 			children = (
@@ -136,7 +144,7 @@
 		24AF532C26CF7D7A004CC000 /* CCUIKit */ = {
 			isa = PBXGroup;
 			children = (
-				24337B4526D337D200A63473 /* ColorPicker */,
+				2423F79526D484AA00525EFF /* Classes */,
 				24AF532D26CF7D7A004CC000 /* AppDelegate.h */,
 				24AF532E26CF7D7A004CC000 /* AppDelegate.m */,
 				24AF533026CF7D7A004CC000 /* SceneDelegate.h */,
