@@ -11,7 +11,7 @@ Pod::Spec.new do |spec|
   spec.license      = "MIT"
   spec.author       = { "周金华" => "zhoujinhua_xm@139.com" }
   spec.platform     = :ios, "9.0"
-  spec.source       = { :git => "https://github.com/zhoujinhuaxm139com/CCKit.git", :tag => "#{spec.version}" }
+  spec.source       = { :git => "https://github.com/zhoujinhuaxm139com/CCKit.git", :tag => "spec.version" }
   spec.source_files  = "Classes/**/*.{h,m}"
   spec.public_header_files = "Classes/**/*.h"
 end
