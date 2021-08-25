@@ -9,7 +9,7 @@
 #import "CCGradientRingLayer.h"
 #import "CCCircleTrack.h"
 #import "CCRingTrack.h"
-@interface CCColorPicker()<CCTrackProtocolDelegate>{
+@interface CCColorPicker()<CCTrackProtocolDelegate> {
     CCColorPickerType __type;
 }
 @property (nonatomic,strong) CCGradientRingLayer *ringLayer;
@@ -17,21 +17,21 @@
 @property (nonatomic,strong) id<CCTrackProtocol> trackProtocol;
 @end
 @implementation CCColorPicker
--(id)initWithType:(CCColorPickerType)type{
+-(id)initWithType:(CCColorPickerType)type {
     if (self = [super init]) {
         __type = type;
         [self __initUI];
     }
     return self;
 }
--(id)initWithFrame:(CGRect)frame{
+-(id)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         [self.layer addSublayer:self.ringLayer];
         self.ringWidth = 50;//ring default
     }
     return self;
 }
--(void)__initUI{
+-(void)__initUI {
     [self addSubview:self.fingerTab];
     if (__type == CCColorPickerTypeCircle) {
         self.trackProtocol = [[CCCircleTrack alloc] init];
@@ -42,10 +42,10 @@
     self.trackProtocol.color = [UIColor colorWithHue:0 saturation:1 brightness:1 alpha:1];
     self.trackProtocol.delegate = self;
 }
--(void)setRingWidth:(CGFloat)ringWidth{
+-(void)setRingWidth:(CGFloat)ringWidth {
     _ringWidth = ringWidth;
 }
--(void)layoutSubviews{
+-(void)layoutSubviews {
     [super layoutSubviews];
     self.trackProtocol.ringWidth = self.ringWidth;
     self.trackProtocol.bounds = self.bounds;
@@ -55,14 +55,14 @@
     self.ringLayer.frame = self.bounds;
     self.fingerTab.center = self.trackProtocol.point;
 }
--(void)setColor:(UIColor *)color{
+-(void)setColor:(UIColor *)color {
     self.trackProtocol.color = color;
     self.fingerTab.center = self.trackProtocol.point;
 }
--(UIColor *)color{
+-(UIColor *)color {
     return self.trackProtocol.color;
 }
--(void)updateRingWidth{
+-(void)updateRingWidth {
     if (__type == CCColorPickerTypeCircle) {
         self.ringLayer.width = CGRectGetWidth(self.bounds)/2.0;
         self.ringLayer.radialGradient = YES;
@@ -71,27 +71,27 @@
         self.ringLayer.radialGradient = NO;
     }
 }
--(BOOL)beginTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event{
+-(BOOL)beginTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event {
     [super beginTrackingWithTouch:touch withEvent:event];
     return [self.trackProtocol beginTrackingWithTouch:touch withEvent:event];
 }
--(BOOL)continueTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event{
+-(BOOL)continueTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event {
     [super continueTrackingWithTouch:touch withEvent:event];
     return [self.trackProtocol continueTrackingWithTouch:touch withEvent:event];
 }
--(void)endTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event{
+-(void)endTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event {
     [super endTrackingWithTouch:touch withEvent:event];
 }
--(void)trackingChangePoint:(CGPoint)point{
+-(void)trackingChangePoint:(CGPoint)point {
     self.fingerTab.center = point;
 }
--(CCGradientRingLayer *)ringLayer{
+-(CCGradientRingLayer *)ringLayer {
     if (!_ringLayer) {
         _ringLayer = [CCGradientRingLayer layer];
     }
     return _ringLayer;
 }
--(UIImageView *)fingerTab{
+-(UIImageView *)fingerTab {
     if (!_fingerTab) {
         _fingerTab = [[UIImageView alloc] init];
         _fingerTab.backgroundColor = UIColor.whiteColor;

@@ -12,22 +12,22 @@
 }
 @end
 @implementation CCRingTrack
--(void)setColor:(UIColor *)color{
+-(void)setColor:(UIColor *)color {
     _color = color;
     [self updatePoint];
 }
--(void)setBounds:(CGRect)bounds{
+-(void)setBounds:(CGRect)bounds {
     _bounds = bounds;
     __width = MIN(bounds.size.width, bounds.size.height)/2.0;
     __center = CGPointMake(__width, __width);
     [self updatePoint];
 }
--(void)updatePoint{
+-(void)updatePoint {
     CGFloat h,s;
     [_color getHue:&h saturation:&s brightness:nil alpha:nil];
     self.point = [self convertPointFromAngle:h*(M_PI * 2) radius:(__width - _ringWidth/2)];
 }
--(BOOL)beginTrackingWithTouch:(UITouch *)touch withEvent:(id)event{
+-(BOOL)beginTrackingWithTouch:(UITouch *)touch withEvent:(id)event {
     CGPoint lastPoint = [touch locationInView:touch.view];
     if ([self.class point:lastPoint inCircleRect:touch.view.bounds]
         && ![self.class point:lastPoint inCircleRect:CGRectMake(__center.x - (__width - _ringWidth), __center.y - (__width - _ringWidth), (__width - _ringWidth)*2, (__width - _ringWidth)*2)]) {
@@ -41,7 +41,7 @@
     }
     return NO;
 }
--(BOOL)continueTrackingWithTouch:(UITouch *)touch withEvent:(id)event{
+-(BOOL)continueTrackingWithTouch:(UITouch *)touch withEvent:(id)event {
     CGPoint lastPoint = [touch locationInView:touch.view];
     CGFloat h = [self convertAngleFromPoint:lastPoint]/(M_PI * 2);
     self.color = [UIColor colorWithHue:h saturation:1 brightness:1 alpha:1];
@@ -53,14 +53,14 @@
 }
 
 //角度获取圆上的点
--(CGPoint)convertPointFromAngle:(CGFloat)angle radius:(CGFloat)radius{
+-(CGPoint)convertPointFromAngle:(CGFloat)angle radius:(CGFloat)radius {
     CGPoint result;
     result.y = round(__center.y + radius * sin(angle));//-M_PI_2/3
     result.x = round(__center.x + radius * cos(angle));
     return result;
 }
 
--(CGFloat)convertAngleFromPoint:(CGPoint)point{
+-(CGFloat)convertAngleFromPoint:(CGPoint)point {
     CGFloat dx = point.x - __center.x;
     CGFloat dy = point.y - __center.y;
     CGFloat angleRad = atan2f(dy, dx);
@@ -71,7 +71,7 @@
 }
 
 //点在圆的Rect判断
-+(BOOL)point:(CGPoint)point inCircleRect:(CGRect)rect{
++(BOOL)point:(CGPoint)point inCircleRect:(CGRect)rect {
     CGFloat width = (MIN(rect.size.width, rect.size.height)/2.0);
     CGPoint center = CGPointMake(rect.origin.x + width, rect.origin.y + width);
     double dx = fabs(point.x - center.x);

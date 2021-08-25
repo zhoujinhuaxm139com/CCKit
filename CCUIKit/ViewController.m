@@ -40,15 +40,15 @@
     [self.view addGestureRecognizer:tap];
     // Do any additional setup after loading the view.
 }
--(void)tapAction{
+-(void)tapAction {
     [self.view endEditing:YES];
 }
--(void)okAction{
+-(void)okAction {
     self.colorPicker.color = [UIColor colorWithRed:[self.text.text floatValue]/255.0 green:[self.text1.text floatValue]/255.0 blue:[self.text2.text floatValue]/255.0 alpha:1];
     self.ringPicker.color = [UIColor colorWithRed:[self.text.text floatValue]/255.0 green:[self.text1.text floatValue]/255.0 blue:[self.text2.text floatValue]/255.0 alpha:1];
 
 }
--(void)changeAction{
+-(void)changeAction {
     self.colorPicker.hidden = !self.colorPicker.hidden;
     self.ringPicker.hidden = !self.ringPicker.hidden;
 }
@@ -58,14 +58,14 @@
     }
     return YES;
 }
--(CCColorPicker *)colorPicker{
+-(CCColorPicker *)colorPicker {
     if (!_colorPicker) {
         _colorPicker = [[CCColorPicker alloc] initWithType:CCColorPickerTypeCircle];
         _colorPicker.ringWidth = 50;
     }
     return _colorPicker;
 }
--(CCColorPicker *)ringPicker{
+-(CCColorPicker *)ringPicker {
     if (!_ringPicker) {
         _ringPicker = [[CCColorPicker alloc] initWithType:CCColorPickerTypeRing];
         _ringPicker.ringWidth = 50;
@@ -73,7 +73,7 @@
     }
     return _ringPicker;
 }
--(UITextField *)text{
+-(UITextField *)text {
     if (!_text) {
         _text = [[UITextField alloc] init];
         _text.layer.borderColor = UIColor.grayColor.CGColor;
@@ -83,7 +83,7 @@
     }
     return _text;
 }
--(UITextField *)text1{
+-(UITextField *)text1 {
     if (!_text1) {
         _text1 = [[UITextField alloc] init];
         _text1.layer.borderColor = UIColor.grayColor.CGColor;
@@ -93,7 +93,7 @@
     }
     return _text1;
 }
--(UITextField *)text2{
+-(UITextField *)text2 {
     if (!_text2) {
         _text2 = [[UITextField alloc] init];
         _text2.layer.borderColor = UIColor.grayColor.CGColor;
@@ -102,7 +102,7 @@
     }
     return _text2;
 }
--(UIButton *)okBtn{
+-(UIButton *)okBtn {
     if (!_okBtn) {
         _okBtn = [[UIButton alloc] init];
         _okBtn.frame = CGRectMake(50, 460, (__width - 100), 40);
@@ -113,7 +113,7 @@
     }
     return _okBtn;
 }
--(UIButton *)changeBtn{
+-(UIButton *)changeBtn {
     if (!_changeBtn) {
         _changeBtn = [[UIButton alloc] init];
         _changeBtn.frame = CGRectMake(50, 530, (__width - 100), 40);

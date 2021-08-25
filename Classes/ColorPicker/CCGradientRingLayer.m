@@ -6,7 +6,7 @@
 //
 
 #import "CCGradientRingLayer.h"
-@interface CCGradientRingLayer(){
+@interface CCGradientRingLayer() {
     CGPoint __center;
     CGFloat __width;
 }
@@ -19,12 +19,12 @@
     }
     return self;
 }
--(void)setWidth:(CGFloat)width{
+-(void)setWidth:(CGFloat)width {
     _width = width;
     [self setNeedsDisplay];
 }
 
--(void)layoutSublayers{
+-(void)layoutSublayers {
     [super layoutSublayers];
     __center = CGPointMake(self.bounds.size.width/2.0, self.bounds.size.height/2.0);
     __width = MIN(self.frame.size.width, self.frame.size.height)/2;
@@ -32,7 +32,7 @@
     [self setNeedsDisplay];
 }
 
--(void)drawInContext:(CGContextRef)ctx{
+-(void)drawInContext:(CGContextRef)ctx {
     [super drawInContext:ctx];
     NSInteger count = 360;
     CGContextClearRect(ctx, self.frame);
@@ -57,8 +57,7 @@
 - (void)drawRadialGradient:(CGContextRef)context
                       path:(CGPathRef)path
                 startColor:(CGColorRef)startColor
-                  endColor:(CGColorRef)endColor
-{
+                  endColor:(CGColorRef)endColor {
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
     CGFloat locations[] = { 0.0, 0.8};
     NSArray *colors = @[(__bridge id) startColor, (__bridge id) endColor];
